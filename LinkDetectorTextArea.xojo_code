@@ -6,15 +6,12 @@ Inherits TextArea
 		  
 		  if linkedWords <> nil and boundedWord <> nil then
 		    
-		    'dim url as string
-		    '
-		    'if linkedWords.HasKey(mboundedWord.Left) then ShowURL( linkedWords.Value(mboundedWord.Left) )
 		    
 		    if linkedWords.HasKey(mboundedWord.Left) then
 		      
 		      dim p as new pair(mboundedWord.Left,linkedWords.Value(mboundedWord.Left))
 		      
-		      for Each item as URLTextArea.URLTextActionDelegate in observers
+		      for Each item as LinkDetectorTextArea.URLTextActionDelegate in observers
 		        
 		        
 		        item.Invoke p
@@ -28,7 +25,6 @@ Inherits TextArea
 		    Return true
 		    
 		  end if
-		  
 		  
 		  
 		  Return RaiseEvent mousedown(x,y)
@@ -124,7 +120,7 @@ Inherits TextArea
 
 
 	#tag Method, Flags = &h0
-		Sub deleteObserver(observer as URLTextArea.URLTextActionDelegate)
+		Sub deleteObserver(observer as LinkDetectorTextArea.URLTextActionDelegate)
 		  if observer <> nil then
 		    
 		    dim n as integer = observers.IndexOf(observer)
