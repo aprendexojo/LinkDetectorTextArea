@@ -11,7 +11,7 @@ Inherits TextArea
 		      
 		      dim p as new pair(mboundedWord.Left,linkedWords.Value(mboundedWord.Left))
 		      
-		      for Each item as LinkDetectorTextArea.URLTextActionDelegate in observers
+		      for Each item as LinkDetectorTextArea.ActionDelegate in observers
 		        
 		        
 		        item.Invoke p
@@ -119,8 +119,12 @@ Inherits TextArea
 	#tag EndEvent
 
 
+	#tag DelegateDeclaration, Flags = &h0
+		Delegate Sub ActionDelegate(boundedWord as pair)
+	#tag EndDelegateDeclaration
+
 	#tag Method, Flags = &h0
-		Sub deleteObserver(observer as LinkDetectorTextArea.URLTextActionDelegate)
+		Sub deleteObserver(observer as LinkDetectorTextArea.ActionDelegate)
 		  if observer <> nil then
 		    
 		    dim n as integer = observers.IndexOf(observer)
@@ -132,7 +136,7 @@ Inherits TextArea
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub registerObserver(observer as URLTextActionDelegate)
+		Sub registerObserver(observer as ActionDelegate)
 		  if observer <> nil then observers.Append observer
 		End Sub
 	#tag EndMethod
@@ -161,10 +165,6 @@ Inherits TextArea
 		  me.SelLength = 0
 		End Sub
 	#tag EndMethod
-
-	#tag DelegateDeclaration, Flags = &h0
-		Delegate Sub URLTextActionDelegate(boundedWord as pair)
-	#tag EndDelegateDeclaration
 
 	#tag Method, Flags = &h21
 		Private Function wordInDictionary(word as string, leftposition as integer, RightPosition as integer) As pair
@@ -239,7 +239,7 @@ Inherits TextArea
 	#tag EndProperty
 
 	#tag Property, Flags = &h21
-		Private observers() As URLTextActionDelegate
+		Private observers() As ActionDelegate
 	#tag EndProperty
 
 	#tag Property, Flags = &h21
