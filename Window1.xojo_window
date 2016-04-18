@@ -9,7 +9,7 @@ Begin Window Window1
    FullScreen      =   False
    FullScreenButton=   False
    HasBackColor    =   False
-   Height          =   400
+   Height          =   638
    ImplicitInstance=   True
    LiveResize      =   True
    MacProcID       =   0
@@ -25,7 +25,7 @@ Begin Window Window1
    Resizeable      =   True
    Title           =   "Untitled"
    Visible         =   True
-   Width           =   600
+   Width           =   798
    Begin LinkDetectorTextArea myURLField
       AcceptTabs      =   False
       Alignment       =   0
@@ -38,7 +38,7 @@ Begin Window Window1
       DataSource      =   ""
       Enabled         =   True
       Format          =   ""
-      Height          =   103
+      Height          =   63
       HelpTag         =   ""
       HideSelection   =   True
       Index           =   -2147483648
@@ -63,12 +63,12 @@ Begin Window Window1
       TabIndex        =   0
       TabPanelIndex   =   0
       TabStop         =   True
-      Text            =   "En un lugar de La Mancha de cuyo nombre no puedo acordarme, pero puedes consultarlo aquí."
+      Text            =   "Xojo is the best multi platform environment you can find around! It allows you to create native, compiled, secure, apps for iOS, Desktop (OS X, Windows, Linux) and Raspberry Pi! without the hassles of other development environments. (Javier Rodríguez)"
       TextColor       =   &c00000000
       TextFont        =   "System"
       TextSize        =   0.0
       TextUnit        =   0
-      Top             =   20
+      Top             =   52
       Underline       =   False
       UseFocusRing    =   False
       Visible         =   True
@@ -96,7 +96,7 @@ Begin Window Window1
       Selectable      =   False
       TabIndex        =   1
       TabPanelIndex   =   0
-      Text            =   "Untitled"
+      Text            =   ""
       TextAlign       =   0
       TextColor       =   &c00000000
       TextFont        =   "System"
@@ -111,10 +111,10 @@ Begin Window Window1
    Begin HTMLViewer HTMLViewer1
       AutoDeactivate  =   True
       Enabled         =   True
-      Height          =   245
+      Height          =   399
       HelpTag         =   ""
       Index           =   -2147483648
-      Left            =   280
+      Left            =   20
       LockBottom      =   True
       LockedInPosition=   False
       LockLeft        =   True
@@ -125,9 +125,77 @@ Begin Window Window1
       TabIndex        =   2
       TabPanelIndex   =   0
       TabStop         =   True
-      Top             =   135
+      Top             =   219
       Visible         =   True
-      Width           =   300
+      Width           =   758
+   End
+   Begin Label Label1
+      AutoDeactivate  =   True
+      Bold            =   True
+      DataField       =   ""
+      DataSource      =   ""
+      Enabled         =   True
+      Height          =   20
+      HelpTag         =   ""
+      Index           =   -2147483648
+      InitialParent   =   ""
+      Italic          =   False
+      Left            =   20
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Multiline       =   False
+      Scope           =   0
+      Selectable      =   False
+      TabIndex        =   3
+      TabPanelIndex   =   0
+      Text            =   "Sample Text"
+      TextAlign       =   0
+      TextColor       =   &c00000000
+      TextFont        =   "System"
+      TextSize        =   0.0
+      TextUnit        =   0
+      Top             =   20
+      Transparent     =   True
+      Underline       =   False
+      Visible         =   True
+      Width           =   100
+   End
+   Begin Label Label2
+      AutoDeactivate  =   True
+      Bold            =   True
+      DataField       =   ""
+      DataSource      =   ""
+      Enabled         =   True
+      Height          =   20
+      HelpTag         =   ""
+      Index           =   -2147483648
+      InitialParent   =   ""
+      Italic          =   False
+      Left            =   20
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Multiline       =   False
+      Scope           =   0
+      Selectable      =   False
+      TabIndex        =   4
+      TabPanelIndex   =   0
+      Text            =   "Detected Word"
+      TextAlign       =   0
+      TextColor       =   &c00000000
+      TextFont        =   "System"
+      TextSize        =   0.0
+      TextUnit        =   0
+      Top             =   127
+      Transparent     =   True
+      Underline       =   False
+      Visible         =   True
+      Width           =   100
    End
 End
 #tag EndWindow
@@ -154,7 +222,7 @@ End
 #tag Events myURLField
 	#tag Event
 		Sub Open()
-		  me.setDictionary new Dictionary("aquí.":"http://www.aprendexojo.com","La Mancha":"https://es.wikipedia.org/wiki/La_Mancha")
+		  me.setDictionary new Dictionary("Xojo.":"http://www.xojo.com","iOS,":"http://www.apple.com/ios/", "(OS X,":"http://www.apple.com/osx/", "Windows,":"https://www.microsoft.com/en-US/windows","Linux)":"https://es.wikipedia.org/wiki/GNU/Linux","Raspberry Pi!":"https://www.raspberrypi.org/","(Javier Rodríguez)":"http://www.aprendexojo.com")
 		  
 		  
 		End Sub
