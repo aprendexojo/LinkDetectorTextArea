@@ -203,9 +203,9 @@ End
 #tag WindowCode
 	#tag Event
 		Sub Open()
-		  myURLField.setDictionary new Dictionary("Xojo":"http://www.xojo.com","iOS,":"http://www.apple.com/ios/",_
-		  "(OS X,":"http://www.apple.com/osx/", "Windows,":"https://www.microsoft.com/en-US/windows","Linux)":"https://es.wikipedia.org/wiki/GNU/Linux",_
-		  "Raspberry Pi!":"https://www.raspberrypi.org/","(Javier Rodríguez)":"http://www.aprendexojo.com")
+		  myURLField.setDictionary new Dictionary("Xojo":"http://www.xojo.com","iOS":"http://www.apple.com/ios/",_
+		  "OS X":"http://www.apple.com/osx/", "Windows":"https://www.microsoft.com/en-US/windows","Linux":"https://es.wikipedia.org/wiki/GNU/Linux",_
+		  "Raspberry Pi":"https://www.raspberrypi.org/","Javier Rodríguez":"http://www.aprendexojo.com")
 		  
 		  
 		  myURLField.registerObserver WeakAddressOf updateContents

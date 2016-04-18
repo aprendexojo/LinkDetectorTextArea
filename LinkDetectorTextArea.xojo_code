@@ -149,12 +149,12 @@ Inherits TextArea
 
 	#tag Method, Flags = &h21
 		Private Sub setStyleForWord(word as pair, mode as Boolean)
-		  dim cStart, cEnd, sStart as integer
+		  dim cStart, cEnd, sStart as Double
 		  
 		  sStart = me.SelStart
 		  
-		  cStart = NthField(word.Right.TextValue,"-",1).Val
-		  cEnd = NthField(word.Right.TextValue,"-",2).val - cStart
+		  cStart = NthField(word.Right,"-",1).Val
+		  cEnd = NthField(word.Right,"-",2).val - cStart
 		  
 		  me.SelStart = cStart - 1
 		  me.SelLength = cEnd
@@ -168,7 +168,32 @@ Inherits TextArea
 
 	#tag Method, Flags = &h21
 		Private Function wordInDictionary(word as string, leftposition as integer, RightPosition as integer) As pair
-		  if linkedWords.HasKey(word) then Return new pair(word,leftposition.ToText+"-"+RightPosition.ToText)
+		  dim theRightPosition as integer
+		  
+		  dim re as new RegEx
+		  re.SearchPattern = "[a-zA-Z]+"
+		  
+		  dim rm as RegExMatch
+		  
+		  rm = re.Search(word)
+		  
+		  if rm <> nil then 
+		    
+		    
+		    dim foundword as string = rm.SubExpressionString(0)
+		    
+		    dim characterPosition as integer = word.LeftB(rm.SubExpressionStartB(0)).Len
+		    
+		    word = foundword
+		    
+		    leftposition = leftposition + characterPosition
+		    
+		    therightposition = leftposition + word.Len
+		    
+		  end if
+		  
+		  
+		  if linkedWords.HasKey(word) then Return new pair(word,leftposition.ToText+"-"+ theRightPosition.ToText)
 		  
 		  dim blu as integer
 		  
