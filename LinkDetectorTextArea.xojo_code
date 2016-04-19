@@ -7,20 +7,16 @@ Inherits TextArea
 		  if linkedWords <> nil and boundedWord <> nil then
 		    
 		    
-		    if linkedWords.HasKey(mboundedWord.Left) then
-		      
-		      dim p as new pair(mboundedWord.Left,linkedWords.Value(mboundedWord.Left))
-		      
-		      for Each item as LinkDetectorTextArea.ActionDelegate in observers
-		        
-		        
-		        item.Invoke p
-		        
-		        
-		      next
+		    dim p as new pair(mboundedWord.Left,linkedWords.Value(mboundedWord.Left))
+		    
+		    for Each item as LinkDetectorTextArea.ActionDelegate in observers
 		      
 		      
-		    end if
+		      item.Invoke p
+		      
+		      
+		    next
+		    
 		    
 		    Return true
 		    
@@ -102,6 +98,10 @@ Inherits TextArea
 		    
 		    setStyleForWord(previousBoundedWord, true)
 		    
+		    
+		  else
+		    
+		    mboundedWord = nil 
 		    
 		  end if
 		  
